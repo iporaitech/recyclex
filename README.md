@@ -40,10 +40,18 @@ Recyclex.GraphQL.node_object()
 
 ## Backend functions
 
-Move a record to trash
+**Move a record to trash**
 
 ```elixir
 Recyclex.move_to_trash(record OR global_id (?))
+```
+
+This would need record changeset, e.g.:
+
+```elixir
+person
+|> Person.delete_changeset()
+|> delete_and_insert_into_bin(global_id)
 ```
 
 Restore a record from trash
